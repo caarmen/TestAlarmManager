@@ -23,7 +23,7 @@ Steps to reproduce:
 * Install the app to an S6 device
 * Set the "Alarm delay" to 600 seconds.
 * Tap the enable switch to schedule the alarm
-* Run the following command to see at what time the alarm is really scheduled: ``` adb shell dumpsys alarm | egrep -B1 -A4 tag.*carmen ```
+* Run the following command to see at what time the alarm is really scheduled: ``` adb shell dumpsys alarm | grep -B1 -A4 tag.*carmen ```
   * => You will notice that the alarm was not scheduled at the expected time.
 
 * Tap the switch to disable the alarm
