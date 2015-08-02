@@ -8,7 +8,7 @@ android {
         // Use a package name without "alarm" to reproduce the bug
         // Use a package name with "alarm" to have a working app.
         // See the README.
-        applicationId "some.random.alarm.app"
+        applicationId "some.random.ablarm.app"
         minSdkVersion 21
         targetSdkVersion 21
         versionCode 1

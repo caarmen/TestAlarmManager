@@ -4,7 +4,7 @@ Demonstration of Alarm Manager bug on Samsung Galaxy S6
 Summary:
 --------
 Alarms are not scheduled at the proper time in the following cumulative conditions:
-* The alarm is scheduled in the future at a multiple of 5 minutes plus or minus 5 seconds
+* The alarm is scheduled in the future at 600 seconds
 AND
 * The applicationId does NOT contain the word "alarm"
 AND
@@ -21,11 +21,11 @@ Steps to reproduce:
 ./gradle clean assembleDebug 
 ```
 * Install the app to an S6 device
-* Set the "Alarm delay" to a multiple of 5 minutes, plus or minus 5 seconds.  For example: 600 seconds.
+* Set the "Alarm delay" to 600 seconds.
 * Tap the enable switch to schedule the alarm
 * Run the following command to see at what time the alarm is really scheduled:
 ```
-adb shell dumpsys alarm -B1 -A4 | egrep tag.*carmen
+adb shell dumpsys alarm | egrep -B1 -A4 tag.*carmen
 ```
 * You will notice that the alarm was not scheduled at the expected time.
 * Tap the switch to disable the alarm
@@ -37,7 +37,7 @@ adb shell dumpsys alarm -B1 -A4 | egrep tag.*carmen
 
 
 Any one of the following changes will result in the alarm being properly scheduled:
-* Change the delay of the alarm to a value which isn't a multiple of 5 minutes plus or minus 5 seconds.  Example: 403 seconds.
+* Change the delay of the alarm. I'm not sure what values of alarms have issues, but I've noticed that alarms in the near future (like 60 seconds) don't have the problem.
 * In build.gradle, make sure the applicationId contains the word "alarm"
 * In AlarmManagerTester.onCreate, comment out this line:
 ```
@@ -45,3 +45,9 @@ Any one of the following changes will result in the alarm being properly schedul
 ```
 
 
+Note on the alarm delay:
+------------------------
+As for the alarm delays having this bug, there have been different observations.
+* On one day and one S6, I saw the bug on alarms longer than 596 seconds
+* Another person on another S6 noticed the bug on alarms at multiples of 5 minutes plus or minus 5 seconds.
+* On another day and another S6, I noticed the bug on 600 seconds and 403 seconds, but not 60 seconds.  I didn't do enough testing to find a pattern.
