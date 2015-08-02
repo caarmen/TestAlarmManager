@@ -10,7 +10,7 @@ AND
 AND
 * The application creates an account on the device
 
-If any oen of these conditions is not true, the alarm is scheduled correctly.
+If any one of these conditions is not true, the alarm is scheduled correctly.
 
 
 Steps to reproduce:
@@ -37,6 +37,7 @@ adb shell dumpsys alarm -B1 -A4 | egrep tag.*carmen
 
 
 Any one of the following changes will result in the alarm being properly scheduled:
+* Change the delay of the alarm to a value which isn't a multiple of 5 minutes plus or minus 5 seconds.  Example: 403 seconds.
 * In build.gradle, make sure the applicationId contains the word "alarm"
 * In AlarmManagerTester.onCreate, comment out this line:
 ```
