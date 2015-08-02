@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+
+    Software Name : Libon
+
+    Copyright © 2008 - 2015 Orange Vallee.
+
+    This software is the confidential and proprietary information of France Telecom.
+    You shall not disclose such Confidential Information and shall use it only in accordance with the
+    terms of the license agreement you entered into with France Telecom.
+
+-->
+<!--
+     Configuration for the Sync AccountManager.
+	 The account type is repeated in three additional files
+	 1. sync.xml::ACCOUNT_TYPE
+	 2. sync_contacts.xml::android:accountType 
+	 3. DeviceContactOperations.java
+-->
+
+<account-authenticator xmlns:android="http://schemas.android.com/apk/res/android"
+    android:accountType="carmen.account.type"
+    android:icon="@drawable/ic_launcher"
+    android:label="@string/app_name"
+    android:smallIcon="@drawable/ic_launcher" />

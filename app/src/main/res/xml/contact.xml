@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+
+    Software Name : Libon
+
+    Copyright © 2008 - 2015 Orange Vallee.
+
+    This software is the confidential and proprietary information of France Telecom.
+    You shall not disclose such Confidential Information and shall use it only in accordance with the
+    terms of the license agreement you entered into with France Telecom.
+
+-->
+<ContactsSource xmlns:android="http://schemas.android.com/apk/res/android" >
+
+    <ContactsDataKind
+        android:detailColumn="data3"
+        android:detailSocialSummary="true"
+        android:icon="@drawable/ic_launcher"
+        android:mimeType="vnd.android.cursor.item/vnd.libon.quickaction"
+        android:summaryColumn="data2" />
+    
+</ContactsSource>
