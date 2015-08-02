@@ -18,7 +18,7 @@ Steps to reproduce:
 * Modify build.gradle: change the applicationId to anything that does NOT contain "alarm".
 * Build this app:
 ```
-./gradle clean assembleDebug 
+./gradlew clean assembleDebug 
 ```
 * Install the app to an S6 device
 * Set the "Alarm delay" to 600 seconds.
