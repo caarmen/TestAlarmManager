@@ -15,7 +15,7 @@ If any one of these conditions is not true, the alarm is scheduled correctly.
 
 Steps to reproduce:
 -------------------
-* Modify build.gradle: change the applicationId to anything that does NOT contain "alarm".
+* Modify app/build.gradle: change the applicationId to anything that does NOT contain "alarm".
 * Build this app:
 ```
 ./gradlew clean assembleDebug 
