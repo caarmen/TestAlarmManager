@@ -3,7 +3,11 @@ Demonstration of Alarm Manager bug on Samsung Galaxy S6
 
 Summary:
 --------
-Alarms are not scheduled at the proper time in the following cumulative conditions:
+Alarms are not scheduled at the proper time in the following cumulative conditions.
+Note that the alarms are actually scheduled BEFORE the expected time, whether ```set```
+or ```setExact``` are used, which is against [the documentation of the AlarmManager class] (http://developer.android.com/reference/android/app/AlarmManager.html#set%28int,%20long,%20android.app.PendingIntent%29).
+
+The conditions:
 * The alarm is scheduled in the future at 600 seconds [1]
 AND
 * The applicationId does NOT contain the word "alarm"
@@ -24,7 +28,7 @@ Steps to reproduce:
 * Set the "Alarm delay" to 600 seconds.
 * Tap the enable switch to schedule the alarm
 * Run the following command to see at what time the alarm is really scheduled: ``` adb shell dumpsys alarm | grep -B1 -A4 tag.*carmen ```
-  * => You will notice that the alarm was not scheduled at the expected time.
+  * => You will notice that the alarm was not scheduled at the expected time.  It is scheduled before the expected time.
 
 * Tap the switch to disable the alarm
 * Run the dumpsys alarm command again
